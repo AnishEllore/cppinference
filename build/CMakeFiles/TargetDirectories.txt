@@ -1,0 +1,3 @@
+/home/cc/anish/projectX/build/CMakeFiles/server.dir
+/home/cc/anish/projectX/build/CMakeFiles/edit_cache.dir
+/home/cc/anish/projectX/build/CMakeFiles/rebuild_cache.dir
