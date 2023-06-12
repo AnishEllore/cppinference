@@ -65,7 +65,7 @@ std::shared_ptr<httpserver::http_response> inference_resource::render(const http
 int main() {
     // It is possible to create a webserver passing a great number of parameters. In this case we are just passing the port and the number of thread running.
     at::init_num_threads();
-    std::cout<<at::get_num_threads<<std::endl;
+    // std::cout<<at::get_num_threads<<std::endl;
     at::set_num_threads(1);
     at::set_num_interop_threads(1);
     struct sockaddr_in bind_address;
@@ -74,12 +74,12 @@ int main() {
     bind_address.sin_addr.s_addr = INADDR_ANY;
     bind_address.sin_port = htons(7000);
     unsigned int num_threads = std::thread::hardware_concurrency();
-    std::cout << "Number of threads: " << num_threads << std::endl;
+    // std::cout << "Number of threads: " << num_threads << std::endl;
     httpserver::webserver ws = httpserver::create_webserver(7000)
         .bind_address(reinterpret_cast<const struct sockaddr*>(&bind_address))
-        .start_method(httpserver::http::http_utils::INTERNAL_SELECT)
-        .max_threads(2);
-        //.start_method(httpserver::http::http_utils::THREAD_PER_CONNECTION);
+        // .start_method(httpserver::http::http_utils::INTERNAL_SELECT)
+        // .max_threads(2);
+        .start_method(httpserver::http::http_utils::THREAD_PER_CONNECTION);
 
     hello_world_resource hwr;
     inference_resource ir;

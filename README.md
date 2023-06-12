@@ -44,3 +44,10 @@ make
 1.  ab -n 1 -c 1 -e data_optimized_1000.csv -T "application/json" http://10.52.0.189:7000/hello
 
 # Model C++ downlaoed from : github repo: https://github.com/EmreOzkose/pytorch_cpp/tree/main/b6
+
+
+# Deploying docker container
+# https://awstip.com/a-modern-c-http-server-with-pistache-and-docker-fde07110f2f
+goto docker_anish directory
+sudo docker build -t cppserver .
+docker run -p 7000:7000 -t cppserver

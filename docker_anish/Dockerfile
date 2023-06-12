@@ -37,3 +37,7 @@ RUN cd build && make
 # Run the built application
 EXPOSE 7000
 CMD ./build/server
+
+# https://awstip.com/a-modern-c-http-server-with-pistache-and-docker-fde07110f2f
+# sudo docker build -t cppserver .
+# docker run -p 7000:7000 -t cppserver
