@@ -77,9 +77,9 @@ int main() {
     std::cout << "Number of threads: " << num_threads << std::endl;
     httpserver::webserver ws = httpserver::create_webserver(7000)
         .bind_address(reinterpret_cast<const struct sockaddr*>(&bind_address))
-        //.start_method(httpserver::http::http_utils::INTERNAL_SELECT)
-        //.max_threads(num_threads);
-        .start_method(httpserver::http::http_utils::THREAD_PER_CONNECTION);
+        .start_method(httpserver::http::http_utils::INTERNAL_SELECT)
+        .max_threads(2);
+        //.start_method(httpserver::http::http_utils::THREAD_PER_CONNECTION);
 
     hello_world_resource hwr;
     inference_resource ir;
