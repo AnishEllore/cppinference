@@ -51,7 +51,10 @@ std::string cpu_bound_function() {
 }
 // Using the render method you are able to catch each type of request you receive
 std::shared_ptr<httpserver::http_response> hello_world_resource::render(const httpserver::http_request& req) {
-    std::string result = cpu_bound_function();
+    // std::string result = cpu_bound_function();
+    // return std::shared_ptr<httpserver::http_response>(new httpserver::string_response(result, 200));
+    std:: string data = "Hey guys! I feel SO sorry for those of you who have to abbreviate tweets because you only have 140 characters. Soooooooo lame! Anyway, what's everyone doing today? I'm just type-type-typing away!";
+    std:: string result = infer(data);
     return std::shared_ptr<httpserver::http_response>(new httpserver::string_response(result, 200));
 }
 
