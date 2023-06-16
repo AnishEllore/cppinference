@@ -14,9 +14,8 @@ def plot_cdf():
     # Plot the CDF
     plt.plot(mem_usage, cdf_values)
     plt.ylabel('CDF')
-    plt.xlabel('Memory Usage (RSS) Gb')
+    plt.xlabel('Memory Usage (RSS) GB')
     plt.title('CDF of Memory Consumption')
-    plt.grid(True)
     plt.savefig('memory_usage_cdf.png')
     plt.show()
     

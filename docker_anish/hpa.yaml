@@ -1,0 +1,27 @@
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: cppserver-hpa
+  namespace: faas
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: cppserver-deployment
+  # behavior:
+  # scaleUp:
+  #   policies:
+  #   - type: Percent
+  #     value: 900
+  #     periodSeconds: 5
+  minReplicas: 1
+  maxReplicas: 200
+  metrics:
+    - type: Pods
+      pods:
+        metric:
+          # name: response_per_second
+          name: response_latency_ms_99th
+        target:
+          type: AverageValue
+          averageValue: 300

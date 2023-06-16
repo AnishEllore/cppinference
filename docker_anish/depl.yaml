@@ -11,7 +11,7 @@ metadata:
   labels:
     app: cppserver
 spec:
-  replicas: 2 # tells deployment to run 2 pods matching the template
+  # replicas: 1 # tells deployment to run 2 pods matching the template
   selector:
     matchLabels:
       app: cppserver
@@ -23,7 +23,12 @@ spec:
       containers:
       - name: cppserver
         image: anishellore5/cppserver:latest
-        imagePullPolicy: Never
+        imagePullPolicy: IfNotPresent
+        resources:
+          # limits:
+          #   cpu: "1"
+          # requests:
+          #   cpu: "1"
         ports:
         - containerPort: 7000
 
@@ -40,4 +45,5 @@ spec:
     - protocol: TCP
       port: 7000
       targetPort: 7000
+  type: NodePort
 
