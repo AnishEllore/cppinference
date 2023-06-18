@@ -15,7 +15,7 @@ spec:
   #     value: 900
   #     periodSeconds: 5
   minReplicas: 1
-  maxReplicas: 200
+  maxReplicas: 56
   metrics:
     - type: Pods
       pods:
